@@ -1,0 +1,19 @@
+{
+  "name": "stringnifyer",
+  "version": "1.0.0",
+  "description": "Calculate equal-tension string gauges when retuning to a different note.",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "lib",
+    "instrument-scale-lengths.json"
+  ],
+  "keywords": [
+    "guitar",
+    "strings",
+    "gauge",
+    "tuning",
+    "tension"
+  ],
+  "license": "MIT"
+}

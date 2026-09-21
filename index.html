@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stringnifyer - Scale Length &amp; Gauge Explorer</title>
+  <style>
+    :root {
+      --bg: #f5f3ef;
+      --card: #ffffff;
+      --ink: #1f2430;
+      --muted: #6b7280;
+      --accent: #2f5d50;
+      --ok: #1e7d43;
+      --warn: #a86a00;
+      --bad: #b3372f;
+      --border: #dcd7cf;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+    }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 24px 20px 60px; }
+    header h1 { margin: 0 0 4px; font-size: 28px; letter-spacing: -0.02em; }
+    header p { margin: 0 0 20px; color: var(--muted); max-width: 70ch; }
+    section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin-bottom: 20px;
+    }
+    section h2 { margin: 0 0 10px; font-size: 17px; }
+    .controls { display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-end; }
+    .control { display: flex; flex-direction: column; gap: 4px; }
+    .control label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+    select, input[type="number"], input[type="text"] {
+      font: inherit;
+      padding: 6px 8px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--ink);
+    }
+    input[type="number"] { width: 90px; }
+    .presets { display: flex; flex-wrap: wrap; gap: 6px; align-items: flex-end; }
+    .preset-btn {
+      font: inherit;
+      font-size: 13px;
+      padding: 6px 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: #fff;
+      cursor: pointer;
+    }
+    .preset-btn:hover { background: #f0ede7; }
+    .preset-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+    table { border-collapse: collapse; width: 100%; font-size: 14px; }
+    th, td { padding: 7px 10px; text-align: left; border-bottom: 1px solid var(--border); }
+    th { font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+    tbody tr:last-child td { border-bottom: none; }
+    .num { font-variant-numeric: tabular-nums; }
+    .gauge { font-weight: 600; }
+    .dim { color: var(--muted); }
+    .ok { color: var(--ok); }
+    .warn { color: var(--warn); }
+    .bad { color: var(--bad); }
+    .meta { color: var(--muted); font-size: 13px; margin: 4px 0 12px; }
+    .invalid { color: var(--bad); font-style: italic; }
+    .scroll { overflow-x: auto; }
+    .cat-label { font-weight: 600; }
+    footer { color: var(--muted); font-size: 12px; margin-top: 24px; }
+    .hint { font-size: 12px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Stringnifyer</h1>
+      <p>Pick an instrument, set its scale length, and choose a target tuning. The tables show the string gauges that match the instrument's normal string tension, plus what the stock strings would feel like at that tuning.</p>
+    </header>
+
+    <section>
+      <div class="controls">
+        <div class="control">
+          <label for="instrumentSelect">Instrument</label>
+          <select id="instrumentSelect"></select>
+        </div>
+        <div class="control">
+          <label for="unitSelect">Gauge unit</label>
+          <select id="unitSelect">
+            <option value="in">Inches</option>
+            <option value="mm">Millimeters</option>
+          </select>
+        </div>
+        <div class="control">
+          <label>Target tuning</label>
+          <div class="presets" id="presetRow"></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="detailTitle"></h2>
+      <p class="meta" id="detailMeta"></p>
+      <div class="scroll">
+        <table id="detailTable">
+          <thead></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>All instruments, same target tuning</h2>
+      <p class="meta" id="compareMeta"></p>
+      <div class="scroll">
+        <table id="compareTable">
+          <thead></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>
+      Gauge model: for constant string tension, gauge is proportional to 1 / (scale length x frequency).
+      Target gauges are derived from each instrument's typical stock set; use them as starting points and round to the nearest real string size.
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

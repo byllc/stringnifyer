@@ -1,0 +1,178 @@
+{
+  "Ukuleles": [
+    {
+      "name": "Soprano",
+      "standard_scale_length_inches": {
+        "min": 13.0,
+        "max": 14.0,
+        "text": "13.0\" – 14.0\""
+      },
+      "standard_scale_length_mm": {
+        "min": 330,
+        "max": 355,
+        "text": "330 – 355 mm"
+      },
+      "tuning": "G4-C4-E4-A4"
+    },
+    {
+      "name": "Concert",
+      "standard_scale_length_inches": {
+        "min": 15.0,
+        "max": 16.0,
+        "text": "15.0\" – 16.0\""
+      },
+      "standard_scale_length_mm": {
+        "min": 381,
+        "max": 406,
+        "text": "381 – 406 mm"
+      },
+      "tuning": "G4-C4-E4-A4"
+    },
+    {
+      "name": "Tenor",
+      "standard_scale_length_inches": {
+        "min": 17.0,
+        "max": 18.0,
+        "text": "17.0\" – 18.0\""
+      },
+      "standard_scale_length_mm": {
+        "min": 432,
+        "max": 457,
+        "text": "432 – 457 mm"
+      },
+      "tuning": "G4-C4-E4-A4 (or G3 low)"
+    },
+    {
+      "name": "Baritone",
+      "standard_scale_length_inches": {
+        "min": 19.0,
+        "max": 21.0,
+        "text": "19.0\" – 21.0\""
+      },
+      "standard_scale_length_mm": {
+        "min": 483,
+        "max": 533,
+        "text": "483 – 533 mm"
+      },
+      "tuning": "D3-G3-B3-E3"
+    }
+  ],
+  "Guitars": [
+    {
+      "name": "Parlor / Short-Scale Acoustic",
+      "standard_scale_length_inches": {
+        "min": 24.0,
+        "max": 24.75,
+        "text": "24.0\" – 24.75\""
+      },
+      "standard_scale_length_mm": {
+        "min": 610,
+        "max": 629,
+        "text": "610 – 629 mm"
+      },
+      "tuning": "E2-A2-D3-G3-B3-E4"
+    },
+    {
+      "name": "Classical / Spanish",
+      "standard_scale_length_inches": {
+        "min": 25.6,
+        "max": 25.6,
+        "text": "25.6\" (650 mm)"
+      },
+      "standard_scale_length_mm": {
+        "min": 650,
+        "max": 650,
+        "text": "650 mm"
+      },
+      "tuning": "E2-A2-D3-G3-B3-E4"
+    },
+    {
+      "name": "Steel-String Acoustic (Dreadnought / OM)",
+      "standard_scale_length_inches": {
+        "min": 25.4,
+        "max": 25.5,
+        "text": "25.4\" – 25.5\""
+      },
+      "standard_scale_length_mm": {
+        "min": 645,
+        "max": 648,
+        "text": "645 – 648 mm"
+      },
+      "tuning": "E2-A2-D3-G3-B3-E4"
+    }
+  ],
+  "Tenor & Cigar Box Variants": [
+    {
+      "name": "Tenor Guitar",
+      "standard_scale_length_inches": {
+        "min": 21.0,
+        "max": 23.0,
+        "text": "21.0\" – 23.0\""
+      },
+      "standard_scale_length_mm": {
+        "min": 533,
+        "max": 584,
+        "text": "533 – 584 mm"
+      },
+      "tuning": "C3-G3-D4-A4 (or DGBE)"
+    },
+    {
+      "name": "4-String Cigar Box Guitar (e.g., Firkin)",
+      "standard_scale_length_inches": {
+        "min": 23.0,
+        "max": 24.0,
+        "text": "23.0\" – 24.0\""
+      },
+      "standard_scale_length_mm": {
+        "min": 584,
+        "max": 610,
+        "text": "584 – 610 mm"
+      },
+      "tuning": "D3-G3-B3-E4"
+    }
+  ],
+  "Other Plucked Instruments": [
+    {
+      "name": "Mandolin",
+      "standard_scale_length_inches": {
+        "min": 13.875,
+        "max": 13.875,
+        "text": "13.875\""
+      },
+      "standard_scale_length_mm": {
+        "min": 352,
+        "max": 352,
+        "text": "352 mm"
+      },
+      "tuning": "G3-D4-A4-E5 (Pairs)"
+    },
+    {
+      "name": "Tenor Banjo",
+      "standard_scale_length_inches": {
+        "min": 21.5,
+        "max": 23.0,
+        "text": "21.5\" (Short) / 23.0\" (Long)"
+      },
+      "standard_scale_length_mm": {
+        "min": 546,
+        "max": 584,
+        "text": "546 – 584 mm"
+      },
+      "tuning": "C3-G3-D4-A4"
+    },
+    {
+      "name": "Bouzouki (Irish)",
+      "standard_scale_length_inches": {
+        "min": 22.0,
+        "max": 26.0,
+        "text": "22.0\" – 26.0\""
+      },
+      "standard_scale_length_mm": {
+        "min": 559,
+        "max": 660,
+        "text": "559 – 660 mm"
+      },
+      "tuning": "G2-D3-A3-D4 or C3-G3-D4-A4"
+    }
+  ]
+}
