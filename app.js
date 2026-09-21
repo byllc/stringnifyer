@@ -273,14 +273,14 @@ function renderCompare() {
     const s = state[inst.id];
     let row = '<tr>';
     row += '<td class="cat-label">' + (inst.id === selected.id ? '<strong>' + inst.name + '</strong>' : inst.name) + '</td>';
-    row += '<td class="num dim">' + , idx) {
+    row += '<td class="num dim">' + s.scale + '"</td>';
+    targets.forEach(function (target, idx) {
       if (noteToMidi(target) === null) {
         row += '<td class="dim">?</td>';
       } else if (idx >= inst.tuning.length) {
         row += '<td class="dim">-</td>';
       } else {
-        const gauge = targetGauge(inst.tuning[idx], inst.gauges[i
-        const gauge = targetGauge(inst.tuning[stockIdx], inst.gauges[stockIdx], target, standardScaleOf(inst), s.scale);
+        const gauge = targetGauge(inst.tuning[idx], inst.gauges[idx], target, standardScaleOf(inst), s.scale);
         row += '<td class="num gauge">' + fmtGauge(gauge) + '</td>';
       }
     });
