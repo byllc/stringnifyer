@@ -36,7 +36,7 @@
     }
     section h2 { margin: 0 0 10px; font-size: 17px; }
     .controls { display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-end; }
-    .control { display: flex; flex-direction: column; gap: 4px; }
+    .control { display: flex; flex-direction: column; gap: 4px; flex: 1 1 180px; min-width: 0; }
     .control label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
     select, input[type="number"], input[type="text"] {
       font: inherit;
@@ -46,6 +46,7 @@
       background: #fff;
       color: var(--ink);
     }
+    select { width: 100%; max-width: 100%; }
     input[type="number"] { width: 90px; }
     .presets { display: flex; flex-wrap: wrap; gap: 6px; align-items: flex-end; }
     .preset-btn {
@@ -131,6 +132,7 @@
       Target gauges are derived from each instrument's typical stock set; use them as starting points and round to the nearest real string size.
     </footer>
   </div>
+  <script src="lib/StringGaugeCalculator.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

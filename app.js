@@ -17,30 +17,29 @@ const INSTRUMENTS = [
   { id: 'bouzouki',    category: 'Other Plucked Instruments', name: 'Bouzouki (Irish)', scaleMin: 22.0, scaleMax: 26.0, tuning: ['G2', 'D3', 'A3', 'D4'], gauges: [0.013, 0.018, 0.024, 0.030] }
 ];
 
-const SHARP_NAMES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
-const NOTE_OFFSETS = { C: 0, 'C#': 1, D: 2, 'D#': 3, E: 4, F: 5, 'F#': 6, G: 7, 'G#': 8, A: 9, 'A#': 10, B: 11 };
-const FLAT_TO_SHARP = { DB: 'C#', EB: 'D#', GB: 'F#', AB: 'G#', BB: 'A#' };
+const calculator = new StringGaugeCalculator();
 
-// Note math (A4 = 440 Hz)
+// Note math (A4 = 440 Hz), reused from the core module.
 function noteToMidi(note) {
-  const m = String(note).trim().toUpperCase().match(/^([A-G])([#bB]?)(\d)$/);
-  if (!m) return null;
-  let name = m[1] + (m[2] ? m[2].toUpperCase() : '');
-  if (FLAT_TO_SHARP[name]) name = FLAT_TO_SHARP[name];
-  const offset = NOTE_OFFSETS[name];
-  if (offset === undefined) return null;
-  return 12 * (parseInt(m[3], 10) + 1) + offset;
+  let midi;
+  try {
+    midi = calculator.noteToFrequency(note);
+  } catch (e) {
+    return null;
+  }
+  return isNaN(midi) ? null : Math.round(69 + 12 * Math.log2(midi / 440));
 }
 
 function midiToName(midi) {
   const octave = Math.floor(midi / 12) - 1;
-  return SHARP_NAMES[((midi % 12) + 12) % 12] + octave;
+  return ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'][
+    ((midi % 12) + 12) % 12
+  ] + octave;
 }
 
 function freq(note) {
   const midi = noteToMidi(note);
-  if (midi === null) return NaN;
-  return 440 * Math.pow(2, (midi - 69) / 12);
+  return midi === null ? NaN : calculator.noteToFrequency(midiToName(midi));
 }
 
 function transpose(note, semitones) {
